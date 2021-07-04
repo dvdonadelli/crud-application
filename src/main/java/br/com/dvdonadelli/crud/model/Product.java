@@ -1,9 +1,14 @@
 package br.com.dvdonadelli.crud.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
@@ -12,10 +17,10 @@ public class Product {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String description;
 
 }

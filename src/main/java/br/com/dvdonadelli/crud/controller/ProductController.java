@@ -15,8 +15,8 @@ public class ProductController {
     private ProductRepository repository;
 
     @PostMapping
-    public void criarProdutos(@RequestBody Product product) {
-        repository.save(product);
+    public Product criarProdutos(@RequestBody Product product) {
+        return this.repository.save(product);
     }
     
     @GetMapping
