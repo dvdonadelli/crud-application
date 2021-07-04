@@ -1,7 +1,7 @@
 package br.com.dvdonadelli.crud.controller;
 
-import br.com.dvdonadelli.crud.model.ProductDto;
-import br.com.dvdonadelli.crud.service.ProductService;
+import br.com.dvdonadelli.crud.model.Product;
+import br.com.dvdonadelli.crud.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,16 +12,16 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService service;
+    private ProductRepository repository;
 
     @PostMapping
-    public void create(@RequestBody ProductDto product) {
-        service.create(product);
+    public void criarProdutos(@RequestBody Product product) {
+        repository.save(product);
     }
     
     @GetMapping
-    public List<ProductDto> findAll(){
-        return service.findAll();
+    public List<Product> listarTodos(){
+        return repository.findAll();
     }
 
 }

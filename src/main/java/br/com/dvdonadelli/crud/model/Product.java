@@ -1,4 +1,4 @@
-package br.com.dvdonadelli.crud.entity;
+package br.com.dvdonadelli.crud.model;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "PRODUCT")
-public class ProductEntity {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
