@@ -1,4 +1,4 @@
-package br.com.dvdonadelli.crud.model;
+package br.com.dvdonadelli.crud.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Setter
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -22,5 +22,4 @@ public class Product {
 
     @Column
     private String description;
-
 }
