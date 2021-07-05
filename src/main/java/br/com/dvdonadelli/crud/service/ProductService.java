@@ -41,6 +41,11 @@ public class ProductService {
         this.repository.deleteById(id);
     }
 
+    public ProductDto getProduct(Long id) {
+        ProductEntity ret = this.repository.findById(id).get();
+        return convertToDto(ret);
+    }
+
     private ProductEntity convertToEntity(ProductDto product) {
         return mapper.map(product, ProductEntity.class);
     }
@@ -48,4 +53,5 @@ public class ProductService {
     private ProductDto convertToDto(ProductEntity product) {
         return mapper.map(product, ProductDto.class);
     }
+
 }

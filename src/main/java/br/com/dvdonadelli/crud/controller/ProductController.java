@@ -24,6 +24,9 @@ public class ProductController {
         return this.service.listProducts();
     }
 
+    @GetMapping("/{id}")
+    public ProductDto getProduct(@PathVariable Long id) { return this.service.getProduct(id); }
+
     @PutMapping("/{id}")
     public ProductDto updateProducts(@PathVariable Long id, @RequestBody ProductDto productDto) {
         return this.service.updateProducts(id, productDto);
