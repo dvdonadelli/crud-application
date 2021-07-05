@@ -15,13 +15,13 @@ public class ProductController {
     private ProductService service;
 
     @PostMapping
-    public ProductDto criarProdutos(@RequestBody ProductDto productDto) {
-        return this.service.criar(productDto);
+    public ProductDto createProducts(@RequestBody ProductDto productDto) {
+        return this.service.create(productDto);
     }
 
     @GetMapping
-    public List<ProductDto> listarTodos() {
-        return service.listarTodos();
+    public List<ProductDto> listProducts() {
+        return service.listProducts();
     }
 
 }

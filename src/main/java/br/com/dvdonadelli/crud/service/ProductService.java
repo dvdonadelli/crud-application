@@ -19,12 +19,12 @@ public class ProductService {
     @Autowired
     private ModelMapper mapper;
 
-    public ProductDto criar(ProductDto productDto) {
+    public ProductDto create(ProductDto productDto) {
         ProductEntity entity = this.repository.save(convertToEntity(productDto));
         return convertToDto(entity);
     }
 
-    public List<ProductDto> listarTodos() {
+    public List<ProductDto> listProducts() {
         List<ProductEntity> entities = this.repository.findAll();
 
         return entities.stream().map(this::convertToDto).collect(Collectors.toList());
