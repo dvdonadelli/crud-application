@@ -21,7 +21,17 @@ public class ProductController {
 
     @GetMapping
     public List<ProductDto> listProducts() {
-        return service.listProducts();
+        return this.service.listProducts();
+    }
+
+    @PutMapping("/{id}")
+    public ProductDto updateProducts(@PathVariable Long id, @RequestBody ProductDto productDto) {
+        return this.service.updateProducts(id, productDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProducts(@PathVariable Long id) {
+        this.service.deleteProducts(id);
     }
 
 }

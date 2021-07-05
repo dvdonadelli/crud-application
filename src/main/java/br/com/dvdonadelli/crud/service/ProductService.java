@@ -4,6 +4,7 @@ import br.com.dvdonadelli.crud.entity.ProductEntity;
 import br.com.dvdonadelli.crud.model.ProductDto;
 import br.com.dvdonadelli.crud.repository.ProductRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,16 @@ public class ProductService {
         List<ProductEntity> entities = this.repository.findAll();
 
         return entities.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    public ProductDto updateProducts(Long id, ProductDto productDto) {
+        ProductEntity ret = this.repository.findById(id).get();
+        BeanUtils.copyProperties(convertToEntity(productDto), ret, "id");
+        return convertToDto(this.repository.save(ret));
+    }
+
+    public void deleteProducts(Long id) {
+        this.repository.deleteById(id);
     }
 
     private ProductEntity convertToEntity(ProductDto product) {
